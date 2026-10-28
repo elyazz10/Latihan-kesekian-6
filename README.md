@@ -1,4 +1,4 @@
-# Catatan Praktikum - Hari 1
+# Catatan Praktikum - Hari 1 & 2
 
 ## Hari 1: Sesi Pagi
 di yg hari 1 pagi ini saya fokusnye bikin kerangka dasar halaman profil dan benerin beberapa error code yg ada dimateri bapak aksih
@@ -25,3 +25,12 @@ di yg hari 1 pagi ini saya fokusnye bikin kerangka dasar halaman profil dan bene
 Di sesi siang ini kodenya di-refactor / dipecah biar lebih modular dan rapi:
 1. **Bikin widget `ProfileAvatar`:** buat nampung komponen foto profil (`CircleAvatar`).
 2. **Bikin widget `ProfileInfo`:** buat nampung teks nama sama role, lengkap pake parameter data passing (`userName` dan `role`).
+
+---
+
+## Hari 2: Sesi Pagi (Membangun Baris Statistik)
+Di sesi pagi hari ke-2 ini fokusnya nambahin baris statistik profil (Proyek, Followers, Following):
+1. **Nambahin `Container` dan `Row`:** di dalemnya langsung disusun 3 `Column` untuk nampilin angka dan label (15 Proyek, 1.2K Followers, 42 Following). Kodingannya masih ditulis langsung di dalam `profile_page` (belum dipisah/di-extract).
+2. **Benerin bug dosen pada jarak antar statistik:**
+   - **Masalah:** Di kode contoh bapak, antara proyek dan followers tertulis `SizedBox(height: 24)`. karena posisinya di dalam `Row` (arah horizontal ke samping), `height` gak ngefek buat ngasih jarak ke samping.
+   - **Solusinya:** Diubah jadi `SizedBox(width: 24)` biar ada jarak horizontal yang rapi.
