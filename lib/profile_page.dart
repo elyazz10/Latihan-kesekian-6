@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // day 1 appbar bagian atas
+      
       appBar: AppBar(
         title: const Text('Profil Pengguna'),
         centerTitle: true,
@@ -22,18 +22,18 @@ class ProfilePage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              // day 1 siang manggil widget avatar hasil extract
+              
               const ProfileAvatar(),
 
-              // day 1 pagi jarak ke bawah yg difix dari aslinya width 16
+              
               const SizedBox(height: 16),
 
-              // day 1 siang manggil widget nama dan role hasil extract
+              
               ProfileInfo(userName: userName, role: role),
 
               const SizedBox(height: 24),
 
-              // day 2 pagi baris statistik profil proyek followers sama following
+              // day 2 malam 
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
@@ -43,67 +43,12 @@ class ProfilePage extends StatelessWidget {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // kolom proyek
-                    Column(
-                      children: [
-                        Text(
-                          '15',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blueAccent,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Proyek',
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-
-                    // day 2 pagi jarak kesamping yg difix dari aslinya height 24
+                    StatItem(count: '15', label: 'Proyek'),
                     SizedBox(width: 24),
-
-                    // kolom followers
-                    Column(
-                      children: [
-                        Text(
-                          '1.2K',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blueAccent,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Followers',
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-
+                    StatItem(count: '1.2K', label: 'Followers'),
                     SizedBox(width: 24),
-
-                    // kolom following
-                    Column(
-                      children: [
-                        Text(
-                          '42',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blueAccent,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Following',
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                      ],
-                    ),
+                    
+                    StatItem(count: '42', label: 'Following'),
                   ],
                 ),
               ),
@@ -115,9 +60,8 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-// custom widget hasil extract di day 1 siang
 
-// 1. widget foto profil
+
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({super.key});
 
@@ -131,7 +75,7 @@ class ProfileAvatar extends StatelessWidget {
   }
 }
 
-// 2. widget info nama dan role
+// 2. widjet khusus teks nama,role
 class ProfileInfo extends StatelessWidget {
   final String userName;
   final String role;
@@ -156,6 +100,43 @@ class ProfileInfo extends StatelessWidget {
           role,
           style: TextStyle(fontSize: 16, color: Colors.grey[700]),
           textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+// custom widget hasil extract day 2 malam
+
+class StatItem extends StatelessWidget {
+  final String count;
+  final String label;
+
+  const StatItem({
+    super.key,
+    required this.count,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          count,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.blueAccent,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[600],
+          ),
         ),
       ],
     );

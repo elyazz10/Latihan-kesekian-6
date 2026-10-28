@@ -34,3 +34,12 @@ Di sesi pagi hari ke-2 ini fokusnya nambahin baris statistik profil (Proyek, Fol
 2. **Benerin bug dosen pada jarak antar statistik:**
    - **Masalah:** Di kode contoh bapak, antara proyek dan followers tertulis `SizedBox(height: 24)`. karena posisinya di dalam `Row` (arah horizontal ke samping), `height` gak ngefek buat ngasih jarak ke samping.
    - **Solusinya:** Diubah jadi `SizedBox(width: 24)` biar ada jarak horizontal yang rapi.
+
+---
+
+## Hari 2: Sesi Malam (Extract Widget Statistik)
+Di sesi malam hari ke-2 ini baris statistiknya di-refactor / dipecah biar kodenya gak numpuk dan lebih rapi:
+1. **Bikin widget `StatItem`:** satu komponen kolom statistik (angka & label) di-extract jadi widget `StatItem` yang nerima parameter `count` dan `label`. Jadi di dalam `Row`, kita tinggal panggil `StatItem` 3 kali buat Proyek, Followers, dan Following.
+2. **Benerin bug code awal pada tipe data:**
+   - **Masalah:** Di materi contoh bapak, bagian following tertulis `StatItem(count: 42, label: 'Following')`. Nilai `42` itu bentuknya angka (`int`), padahal widget `StatItem` butuhnya teks (`String count`), jadi bikin error *type mismatch*.
+   - **Solusinya:** Diubah jadi string `'42'` pake tanda petik biar cocok dan gak error lagi.
