@@ -52,6 +52,13 @@ Di sesi pagi hari ke-3 ini fokusnya nambahin daftar riwayat pengalaman kerja pak
 2. **Nambahin judul & garis pemisah:** pake widget `Align` teks "Pengalaman Kerja" dan widget `Divider` buat garis pemisahnya.
 3. **Nampilin data pake `ListView.builder`:** kodingannya masih monolitik langsung di dalam `profile_page` (belum di-extract). Tiap item ditampilkan pake `Card` dan `ListTile` yang ada icon tas kerjanya (`Icons.work`).
 4. **Bungkus body pake `SingleChildScrollView`:** biar halaman profilnya bisa di-scroll ke bawah dengan rapi dan gak mentok/overflow pas layarnya kecil.
-5. **Benerin bug dosen pada listview:**
+5. **benerin bug code pada listview:**
    - **Masalah:** Di contoh awal bapak, `ListView.builder` dimasukkan langsung ke dalam `Column` tanpa settingan tinggi. Ini bikin aplikasi langsung merah/error layout *RenderFlex unbounded height* karena listview bingung ngitung batas tingginya.
    - **Solusinya:** Ditambah properti `shrinkWrap: true` dan `physics: const NeverScrollableScrollPhysics()` biar tingginya pas ngikutin isi itemnya.
+
+---
+
+## Hari 3: sesi malam (Extract Widget ExperienceCard)
+di sesi malam yg ke-3 ini tampilan list pengalaman kerja di-refactor biar lebih rapi dan modular:
+1. **Bikin widget `ExperienceCard`:** tampilan baris `Card` (dengan elevation) dan `ListTile` (dengan icon) di-extract jadi widget tersendiri yang nerima parameter `title`.
+2. **Panggilan di `ListView.builder` lebih ringkas:** di dalam `itemBuilder`, kodenya sekarang gak numpuk panjang lagi karena cukup manggil `ExperienceCard(title: experiences[index])`.

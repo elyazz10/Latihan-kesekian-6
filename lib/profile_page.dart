@@ -7,7 +7,7 @@ class ProfilePage extends StatelessWidget {
   final String userName = 'Ahmad ilyas';
   final String role = 'Mahasiswa Software Engineering';
 
-  // day 3 list pengalaman kerja
+  // day 3 list experiencenya
   final List<String> experiences = const [
     'Crew Store -PT.Lancar Wiguna Sejahtera(lawson)',
     'Operator Pertashop - PT. Pertamina (Persero)',
@@ -24,71 +24,62 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              
-              const ProfileAvatar(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            
+            const ProfileAvatar(),
 
-              
-              const SizedBox(height: 16),
+            
+            const SizedBox(height: 16),
 
-              
-              ProfileInfo(userName: userName, role: role),
+            
+            ProfileInfo(userName: userName, role: role),
 
-              const SizedBox(height: 24),
+            const SizedBox(height: 24),
 
-              // day 2 malam 
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    StatItem(count: '15', label: 'Proyek'),
-                    SizedBox(width: 24),
-                    StatItem(count: '1.2K', label: 'Followers'),
-                    SizedBox(width: 24),
-                    
-                    StatItem(count: '42', label: 'Following'),
-                  ],
-                ),
+            // day 2 malam 
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.blue[50],
+                borderRadius: BorderRadius.circular(12),
               ),
-
-              const SizedBox(height: 24),
-
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Pengalaman Kerja',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  StatItem(count: '15', label: 'Proyek'),
+                  SizedBox(width: 24),
+                  StatItem(count: '1.2K', label: 'Followers'),
+                  SizedBox(width: 24),
+                  
+                  StatItem(count: '42', label: 'Following'),
+                ],
               ),
-              const Divider(),
+            ),
 
-              // day 3 listview pengalaman kerjanya
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+            const SizedBox(height: 24),
+
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Pengalaman Kerja',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Divider(),
+
+            // day 3 listview experience
+            Expanded(
+              child: ListView.builder(
                 itemCount: experiences.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 2,
-                    margin: const EdgeInsets.symmetric(vertical: 6),
-                    child: ListTile(
-                      leading: const Icon(Icons.work, color: Colors.blueAccent),
-                      title: Text(experiences[index]),
-                    ),
-                  );
+                  return ExperienceCard(title: experiences[index]);
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -174,6 +165,29 @@ class StatItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+// custom widget hasil extract daey tri
+
+class ExperienceCard extends StatelessWidget {
+  final String title;
+
+  const ExperienceCard({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.symmetric(vertical: 6),
+      child: ListTile(
+        leading: const Icon(Icons.work, color: Colors.blueAccent),
+        title: Text(title),
+      ),
     );
   }
 }
