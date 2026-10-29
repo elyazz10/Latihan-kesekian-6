@@ -1,4 +1,4 @@
-# Catatan Praktikum - Hari 1 & 2
+# Catatan Praktikum - Hari 1, 2 & 3
 
 ## Hari 1: Sesi Pagi
 di yg hari 1 pagi ini saya fokusnye bikin kerangka dasar halaman profil dan benerin beberapa error code yg ada dimateri bapak aksih
@@ -43,3 +43,15 @@ Di sesi malam hari ke-2 ini baris statistiknya di-refactor / dipecah biar kodeny
 2. **Benerin bug code awal pada tipe data:**
    - **Masalah:** Di materi contoh bapak, bagian following tertulis `StatItem(count: 42, label: 'Following')`. Nilai `42` itu bentuknya angka (`int`), padahal widget `StatItem` butuhnya teks (`String count`), jadi bikin error *type mismatch*.
    - **Solusinya:** Diubah jadi string `'42'` pake tanda petik biar cocok dan gak error lagi.
+
+---
+
+## Hari 3: Sesi Pagi (menampilkan list Pengalaman Kerja)
+Di sesi pagi hari ke-3 ini fokusnya nambahin daftar riwayat pengalaman kerja pake list:
+1. **Nambahin data list `experiences`:** data pengalaman kerja disimpan di dalam list `List<String>`.
+2. **Nambahin judul & garis pemisah:** pake widget `Align` teks "Pengalaman Kerja" dan widget `Divider` buat garis pemisahnya.
+3. **Nampilin data pake `ListView.builder`:** kodingannya masih monolitik langsung di dalam `profile_page` (belum di-extract). Tiap item ditampilkan pake `Card` dan `ListTile` yang ada icon tas kerjanya (`Icons.work`).
+4. **Bungkus body pake `SingleChildScrollView`:** biar halaman profilnya bisa di-scroll ke bawah dengan rapi dan gak mentok/overflow pas layarnya kecil.
+5. **Benerin bug dosen pada listview:**
+   - **Masalah:** Di contoh awal bapak, `ListView.builder` dimasukkan langsung ke dalam `Column` tanpa settingan tinggi. Ini bikin aplikasi langsung merah/error layout *RenderFlex unbounded height* karena listview bingung ngitung batas tingginya.
+   - **Solusinya:** Ditambah properti `shrinkWrap: true` dan `physics: const NeverScrollableScrollPhysics()` biar tingginya pas ngikutin isi itemnya.

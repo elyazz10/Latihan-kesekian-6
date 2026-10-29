@@ -7,6 +7,13 @@ class ProfilePage extends StatelessWidget {
   final String userName = 'Ahmad ilyas';
   final String role = 'Mahasiswa Software Engineering';
 
+  // day 3 list pengalaman kerja
+  final List<String> experiences = const [
+    'Crew Store -PT.Lancar Wiguna Sejahtera(lawson)',
+    'Operator Pertashop - PT. Pertamina (Persero)',
+    'Racker Billiard',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +24,9 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               
@@ -51,6 +58,34 @@ class ProfilePage extends StatelessWidget {
                     StatItem(count: '42', label: 'Following'),
                   ],
                 ),
+              ),
+
+              const SizedBox(height: 24),
+
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Pengalaman Kerja',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const Divider(),
+
+              // day 3 listview pengalaman kerjanya
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: experiences.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 2,
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: ListTile(
+                      leading: const Icon(Icons.work, color: Colors.blueAccent),
+                      title: Text(experiences[index]),
+                    ),
+                  );
+                },
               ),
             ],
           ),
