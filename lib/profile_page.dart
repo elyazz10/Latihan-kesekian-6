@@ -37,11 +37,12 @@ class ProfilePage extends StatelessWidget {
             
             ProfileInfo(userName: userName, role: role),
 
-            const SizedBox(height: 24),
+            // day 4 pagi atur jarak 
+            const SizedBox(height: 20),
 
             // day 2 malam 
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 12),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               decoration: BoxDecoration(
                 color: Colors.blue[50],
                 borderRadius: BorderRadius.circular(12),
@@ -50,16 +51,16 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StatItem(count: '15', label: 'Proyek'),
-                  SizedBox(width: 24),
+                  SizedBox(width: 28),
                   StatItem(count: '1.2K', label: 'Followers'),
-                  SizedBox(width: 24),
+                  SizedBox(width: 28),
                   
                   StatItem(count: '42', label: 'Following'),
                 ],
               ),
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
 
             const Align(
               alignment: Alignment.centerLeft,
@@ -68,7 +69,9 @@ class ProfilePage extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            const SizedBox(height: 6),
             const Divider(),
+            const SizedBox(height: 6),
 
             // day 3 listview experience
             Expanded(

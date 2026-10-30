@@ -1,4 +1,4 @@
-# Catatan Praktikum - Hari 1, 2 & 3
+# Catatan Praktikum - Hari 1, 2, 3 & 4
 
 ## Hari 1: Sesi Pagi
 di yg hari 1 pagi ini saya fokusnye bikin kerangka dasar halaman profil dan benerin beberapa error code yg ada dimateri bapak aksih
@@ -62,3 +62,12 @@ Di sesi pagi hari ke-3 ini fokusnya nambahin daftar riwayat pengalaman kerja pak
 di sesi malam yg ke-3 ini tampilan list pengalaman kerja di-refactor biar lebih rapi dan modular:
 1. **Bikin widget `ExperienceCard`:** tampilan baris `Card` (dengan elevation) dan `ListTile` (dengan icon) di-extract jadi widget tersendiri yang nerima parameter `title`.
 2. **Panggilan di `ListView.builder` lebih ringkas:** di dalam `itemBuilder`, kodenya sekarang gak numpuk panjang lagi karena cukup manggil `ExperienceCard(title: experiences[index])`.
+
+---
+
+## Hari 4 Pagi (penyesuaian tata letak)
+di yg pagi hari ke4 ini fokusnya merapikan tata letak (layout) biar tampilan halaman profil lebih proporsional dan rapi:
+1. **Atur jarak vertikal (`SizedBox`):**
+   - Jarak antar profil info, baris statistik, dan bagian pengalaman kerja disesuaikan jadi lebih pas (`height: 20`).
+   - Nambahin jarak tipis sebelum dan sesudah garis `Divider` (`height: 6`) biar teks judul dan daftar card pengalaman gak mepet.
+2. **Atur padding container statistik:** padding vertikal diubah jadi `16` (sebelumnya `12`) dan jarak horizontal antar item statistik disesuaikan jadi `28` biar lebih lega dan seimbang.
