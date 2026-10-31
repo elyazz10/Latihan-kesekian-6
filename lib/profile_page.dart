@@ -37,7 +37,21 @@ class ProfilePage extends StatelessWidget {
             
             ProfileInfo(userName: userName, role: role),
 
-            // day 4 pagi atur jarak 
+            const SizedBox(height: 16),
+
+            // malam ke 4 tombol edit profil
+            ElevatedButton.icon(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('fitur edit belum aktif pada modul statis.'),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.edit),
+              label: const Text('Edit Profil'),
+            ),
+
             const SizedBox(height: 20),
 
             // day 2 malam 

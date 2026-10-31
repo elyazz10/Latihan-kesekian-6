@@ -71,3 +71,10 @@ di yg pagi hari ke4 ini fokusnya merapikan tata letak (layout) biar tampilan hal
    - Jarak antar profil info, baris statistik, dan bagian pengalaman kerja disesuaikan jadi lebih pas (`height: 20`).
    - Nambahin jarak tipis sebelum dan sesudah garis `Divider` (`height: 6`) biar teks judul dan daftar card pengalaman gak mepet.
 2. **Atur padding container statistik:** padding vertikal diubah jadi `16` (sebelumnya `12`) dan jarak horizontal antar item statistik disesuaikan jadi `28` biar lebih lega dan seimbang.
+
+---
+
+## Hari 4 Malam (penambahan aksi statis pada tombol)
+di hari yg ke 4 malam ini fokusnya nambahin tombol interaksi statis:
+1. **mambahin tombol `ElevatedButton.icon`:** ditaruh di bawah teks profil info, ada icon pensil (`Icons.edit`) dan label 'Edit Profil'.
+2. **nambahin aksi notifikasi `SnackBar`:** pas tombolnya ditekan (`onPressed`), bakal muncul notifikasi SnackBar di bawah layar dengan pesan teks *'Fitur edit belum aktif pada modul statis.'*.
